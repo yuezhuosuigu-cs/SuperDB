@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SuperDB</name>
+    </assembly>
+    <members>
+        <member name="T:SuperDB.DBCommand">
+            <summary>
+            数据库命令
+            </summary>
+        </member>
+        <member name="M:SuperDB.DBCommand.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:SuperDB.DBCommand.#ctor(System.String,System.Object)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="commandText">sql命令</param>
+            <param name="commandParameter">执行参数</param>
+        </member>
+        <member name="P:SuperDB.DBCommand.CommandText">
+            <summary>
+            数据库SQL语句
+            </summary>
+        </member>
+        <member name="P:SuperDB.DBCommand.CommandParameter">
+            <summary>
+            数据库执行参数
+            </summary>
+        </member>
+        <member name="T:SuperDB.DBOperator">
+            <summary>
+            定义简单的数据库操作方法
+            </summary>
+        </member>
+        <member name="E:SuperDB.DBOperator.ErrorEvent">
+            <summary>
+            异常事件
+            </summary>
+        </member>
+        <member name="M:SuperDB.DBOperator.TryExecute(SuperDB.IDBFactory,System.Collections.Generic.IEnumerable{SuperDB.DBCommand})">
+            <summary>
+            执行数据库命令，含事务
+            要么全部成功，要么全部失败
+            </summary>
+            <param name="commands">数据库操作命令</param>
+            <returns>全部执行成功返回true，否则返回false</returns>
+        </member>
+        <member name="M:SuperDB.DBOperator.TryExecute(SuperDB.IDBFactory,SuperDB.DBCommand)">
+            <summary>
+            执行数据库命令，不含事务
+            </summary>
+            <param name="command">数据库操作命令</param>
+            <returns>执行成功返回true，否则返回false</returns>
+        </member>
+        <member name="M:SuperDB.DBOperator.Query``1(SuperDB.IDBFactory,SuperDB.DBCommand)">
+            <summary>
+            查询数据库中的数据
+            </summary>
+            <typeparam name="T">查询的数据类型</typeparam>
+            <param name="command">数据库操作命令</param>
+            <returns>返回查到的数据集合</returns>
+        </member>
+        <member name="M:SuperDB.DBOperator.TryQuery``1(SuperDB.IDBFactory,SuperDB.DBCommand,System.Collections.Generic.List{``0}@)">
+            <summary>
+            尝试查询数据库中的数据
+            </summary>
+            <typeparam name="T">查询的数据类型</typeparam>
+            <param name="command">数据库操作命令</param>
+            <param name="results">查询到的数据集合</param>
+            <returns>查询成功返回true， 否则返回false</returns>
+        </member>
+        <member name="T:SuperDB.IDBFactory">
+            <summary>
+            数据库连接工厂
+            </summary>
+        </member>
+        <member name="P:SuperDB.IDBFactory.Connection">
+            <summary>
+            获取一个打开的数据库连接
+            </summary>
+        </member>
+        <member name="P:SuperDB.IDBFactory.Transaction">
+            <summary>
+            获取一个打开的数据库连接的事务
+            </summary>
+        </member>
+        <member name="M:SuperDB.IDBFactory.Commit">
+            <summary>
+            提交事务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SuperDB.IDBFactory.Rollback">
+            <summary>
+            回滚事务
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
