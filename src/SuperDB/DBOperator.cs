@@ -22,7 +22,7 @@ namespace SuperDB
         /// <param name="factory">数据库工厂</param>
         /// <param name="commands">数据库操作命令</param>
         /// <returns>全部执行成功返回true，否则返回false</returns>
-        public static bool TryExecute(this IDBFactory factory, IEnumerable<DBCommand> commands)
+        public static bool TryExecute(this DBFactory factory, IEnumerable<DBCommand> commands)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace SuperDB
         /// <param name="factory">数据库工厂</param>
         /// <param name="command">数据库操作命令</param>
         /// <returns>执行成功返回true，否则返回false</returns>
-        public static bool TryExecute(this IDBFactory factory, DBCommand command)
+        public static bool TryExecute(this DBFactory factory, DBCommand command)
         {
             try
             {
@@ -84,7 +84,7 @@ namespace SuperDB
         /// <param name="factory">数据库工厂</param>
         /// <param name="command">数据库操作命令</param>
         /// <returns>返回查到的数据集合</returns>
-        public static List<T> Query<T>(this IDBFactory factory, DBCommand command)
+        public static List<T> Query<T>(this DBFactory factory, DBCommand command)
         {
             try
             {
@@ -112,7 +112,7 @@ namespace SuperDB
         /// <param name="command">数据库操作命令</param>
         /// <param name="results">查询到的数据集合</param>
         /// <returns>查询成功返回true， 否则返回false</returns>
-        public static bool TryQuery<T>(this IDBFactory factory, DBCommand command, out List<T> results)
+        public static bool TryQuery<T>(this DBFactory factory, DBCommand command, out List<T> results)
         {
             try
             {
